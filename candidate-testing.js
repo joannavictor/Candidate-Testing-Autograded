@@ -34,17 +34,8 @@ function askQuestion() {
 
  //part 2 - start
       for(let i = 0; i < questions.length; i++) {
-        if (i === 0) {
-          candidateAnswers[0] = input.question(questions[0]);}
-          if (i === 1) {
-            candidateAnswers[1] = input.question(questions[1]);}
-            if (i === 2) {
-              candidateAnswers[2] = input.question(questions[2]);}
-              if (i === 3) {
-                candidateAnswers[3] = input.question(questions[3]);}
-                if (i === 4) {
-                  candidateAnswers[4] = input.question(questions[4]);}
-              }
+        candidateAnswers[i] = input.question(questions[i]);
+         }
 //part - 2 - end
 
     }
