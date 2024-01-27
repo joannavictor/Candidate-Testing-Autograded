@@ -8,7 +8,7 @@ let candidateName = "";
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer ="";
-
+let numberOfCorrectAns = 0;
 
 //TODO: Variables for Part 2
 let questions = [
@@ -29,58 +29,51 @@ function askForName() {
 
 function askQuestion() {
  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-      candidateAnswer = input.question("1. Who was the first American woman in space? ");  
-      console.log(questions.length);
+ //      candidateAnswer = input.question("1. Who was the first American woman in space? ");  
+ //      console.log(questions.length);
 
  //part 2 - start
       for(let i = 0; i < questions.length; i++) {
         candidateAnswers[i] = input.question(questions[i]);
-         }
+          }
 //part - 2 - end
 
     }
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-    if (candidateAnswer == correctAnswer) {
-    console.log ("Great Job!!! Correct Answer");
+  // Part 2 - start
+  numberOfCorrectAns = 0;
+  for(let i = 0; i < questions.length; i++) {
+  candidateAnswers[i] = candidateAnswers[i].toLowerCase();
+  correctAnswers[i] = correctAnswers[i].toLowerCase();
+  if ((candidateAnswers[i]) === (correctAnswers[i])) {
+       console.log (`Great Job!!! ${candidateAnswers[i]} is the correct answer`);
+       numberOfCorrectAns = numberOfCorrectAns + 1;
   } else {
-    console.log (`Sorry!!! ${candidateAnswer} is incorrect answer`);
-  }
-  
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-   // Part 2 - start
- if (candidateAnswers[0] == correctAnswers[0]) {
-  console.log (`Great Job!!! Sally Ride is the correct answer`);
-  } else {
-  console.log (`Sorry!!! ${candidateAnswers[0]} is in-correct answer`);
+  console.log (`Sorry!!! ${candidateAnswers[i]} is in-correct answer`);
     }
-
-    if (candidateAnswers[1] == correctAnswers[1]) {
-      console.log (`Great Job!!! true is the correct answer`);
-    } else {
-      console.log (`Sorry!!! ${candidateAnswers[1]} is in-correct answer`);
-        }
-
-        if (candidateAnswers[2] == correctAnswers[2]) {
-          console.log (`Great Job!!! 40 is the correct answer`);
-        } else {
-          console.log (`Sorry!!! ${candidateAnswers[2]} is in-correct answer`);
-            }
-
-            if (candidateAnswers[3] == correctAnswers[3]) {
-              console.log (`Great Job!!! Trajectory is the correct answer`);
-            } else {
-              console.log (`Sorry!!! ${candidateAnswers[3]} is in-correct answer`);
-                }
-
-                if (candidateAnswers[4] == correctAnswers[4]) {
-                  console.log (`Great Job!!! 3 is the correct answer`);
-                } else {
-                  console.log (`Sorry!!! ${candidateAnswers[4]} is in-correct answer`);
-                    }
+  }
  // part 2 - end
+  
+ let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+
+  function percentage(numberOfCorrectAns,numberOfQuizQuestions) {
+    grade =  (((numberOfCorrectAns)/(numberOfQuizQuestions))*100);
+    return grade;
+  }
+  let numberOfQuizQuestions = questions.length;
+
+  percentage(numberOfCorrectAns,numberOfQuizQuestions);
+  console.log(`******************************************************************'`)
+  if (grade < 80 )
+  {
+  console.log(`Test Result - Failed with ${grade}% - Better Luck Next Time!!!`);
+  }
+  else {
+  console.log(`Congratulations ${candidateName} , You have passed with ${grade}% `);
+   }
+  
   return grade;
 }
 
