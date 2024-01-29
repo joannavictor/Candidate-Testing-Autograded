@@ -32,11 +32,11 @@ function askQuestion() {
  //      candidateAnswer = input.question("1. Who was the first American woman in space? ");  
  //      console.log(questions.length);
 
- //part 2 - start
+ //part 3 - start
       for(let i = 0; i < questions.length; i++) {
         candidateAnswers[i] = input.question(questions[i]);
           }
-//part - 2 - end
+//part - 3 - end
 
     }
 function gradeQuiz(candidateAnswers) {
@@ -54,7 +54,7 @@ function gradeQuiz(candidateAnswers) {
   console.log (`Sorry!!! ${candidateAnswers[i]} is in-correct answer`);
     }
   }
- // part 2 - end
+ // part 3 - end
   
  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
